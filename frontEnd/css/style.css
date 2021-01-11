@@ -1,0 +1,15 @@
+
+body {
+    font-family: 'Roboto', serif;
+    background-color: #f5f5dc;
+}
+
+img{
+    width: 250px;
+    height: 200px;
+     
+}
+
+#logo {
+    width: 100%;
+}

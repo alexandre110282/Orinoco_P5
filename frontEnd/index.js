@@ -1,4 +1,3 @@
-
 let getListOfProductsFromApi = new Promise(function (resolve, reject) {
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -15,7 +14,7 @@ let getListOfProductsFromApi = new Promise(function (resolve, reject) {
 function getAllProducts() {
     getListOfProductsFromApi
         .then(function (response) {
-            let products = JSON.parse(response); // Place les produits dans un tableau products
+            let products = JSON.parse(response);
 
             for (let product of products) {
                 const newTeddie = new Teddie(product.colors, product._id, product.name, product.price, product.description, product.imageUrl);
@@ -45,8 +44,8 @@ class Teddie {
         articleBlock.innerHTML = `
             <div>
                 <h3>${this.name}</h3>
-                <p>${this.price/100}</p>
                 <img src="${this.imageUrl}" alt="...">
+                <p>${this.price/100} €</p>
                 <button id="${this._id}">Ajouter au panier</button>
             </div>`;
         let button = articleBlock.getElementsByTagName("button");
@@ -56,7 +55,7 @@ class Teddie {
     }
     static addBasket(event){
         console.log("event= ", event.srcElement.id);
-        localStorage.setItem("event= ", event.srcElement.id);}   
+        localStorage.setItem("event= ", event.srcElement.id);
+    addEventListener("click", fonction() {window.location.href = "product.html"} )}   
 
 }
-
