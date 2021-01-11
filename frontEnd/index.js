@@ -25,37 +25,38 @@ function getAllProducts() {
             document.getElementById("main").innerHTML += `<p>Connection au serveur échouée.</p>`;
             console.error(error);
         });
-        console.log("ici");
+    console.log("ici");
 }
 
 class Teddie {
-	constructor(colors, _id, name, price, description, imageUrl) {
-		this.colors = colors;
-		this._id = _id;
-		this.name = name;
-		this.price = price;
-		this.imageUrl = imageUrl;  
-	  	this.description = description;
-          console.log("this = ", this);
-	  
+    constructor(colors, _id, name, price, description, imageUrl) {
+        this.colors = colors;
+        this._id = _id;
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        console.log("this = ", this);
+
     }
-    createHtmlBlock(){
+    createHtmlBlock() {
         let articleBlock = document.createElement("article");
         articleBlock.innerHTML = `
             <div>
                 <h3>${this.name}</h3>
                 <img src="${this.imageUrl}" alt="...">
                 <p>${this.price/100} €</p>
-                <button id="${this._id}">Ajouter au panier</button>
+                <button id="${this._id}">Détails</button>
             </div>`;
         let button = articleBlock.getElementsByTagName("button");
-        button[0].addEventListener('click',Teddie.addBasket);
+        button[0].addEventListener('click', Teddie.viewDetail);
 
         return articleBlock;
     }
-    static addBasket(event){
+    static viewDetail(event) {
         console.log("event= ", event.srcElement.id);
-        localStorage.setItem("event= ", event.srcElement.id);
-    addEventListener("click", fonction() {window.location.href = "product.html"} )}   
+        localStorage.setItem("teddieId", event.srcElement.id);
+        window.location.href = "product.html";
+    }
 
 }
